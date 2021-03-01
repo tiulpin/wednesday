@@ -1,0 +1,27 @@
+name: Wednesday 
+
+on:
+  schedule:
+    - cron: '59 9 * * TUE'
+    - cron: '59 11 * * THU'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Commit Wednesday
+      run: |
+        mv content/_index.md_old content/tmp
+        mv content/_index.md content/_index.md_old 
+        mv content/tmp content/_index.md
+        git add .
+        git config --local user.email "viktor@tiulp.in"
+        git config --local user.name "tiulpin"
+        git commit -m "🐸 Is It Wednesday?"
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: main

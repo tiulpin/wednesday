@@ -1,0 +1,7 @@
+staticDir = ["assets"]
+publishDir = "docs"
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+

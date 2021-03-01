@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+
+        <title>It Is Wednesday My Dudes</title>
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="It Is Wednesday My Dudes" />
+        <meta property="og:title"  content="It Is Wednesday My Dudes" />
+        
+        <meta name="description"         content="Yet Another History of Dudes. Brought to you only on Wednesdays by Wednesday Community." />
+        <meta name="twitter:description" content="Yet Another History of Dudes. Brought to you only on Wednesdays by Wednesday Community." />
+        <meta property="og:description"  content="Yet Another History of Dudes. Brought to you only on Wednesdays by Wednesday Community." />
+
+<!--        &lt;!&ndash; Global site tag (gtag.js) - Google Analytics &ndash;&gt;-->
+<!--        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DLXNEPQY85"></script>-->
+<!--        <script>-->
+<!--        window.dataLayer = window.dataLayer || [];-->
+<!--        function gtag(){dataLayer.push(arguments);}-->
+<!--        gtag('js', new Date());-->
+
+<!--        gtag('config', 'G-DLXNEPQY85');-->
+<!--        </script>-->
+
+        {{ $css := resources.Get "css/main.css" | resources.ToCSS }}
+        <link rel="stylesheet" media="screen" href="/css/main.css">
+        <link rel="stylesheet" media="print" href="/css/print.css">
+    </head>
+    <body>
+        {{- block "main" . }}{{- end }}
+        {{ $js := resources.Get "js/main.js" }}
+        <script src="{{ $js.Permalink }}"></script>
+    </body>
+</html>
